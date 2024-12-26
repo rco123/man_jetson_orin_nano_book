@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>설치 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\uc124\uce58";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\uc751\uc6a9\\opencv\\opencv_install.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >3.1 opencv</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../opencv/">개요</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">설치</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#_1">일반설치</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 시스템 업데이트</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-opencv">2. OpenCV 설치</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-opencv">3. 설치된 OpenCV 버전 확인</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-opencv-cuda">4. OpenCV와 CUDA 가속 여부 확인</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-opencv">5. 설치된 OpenCV 활용하기</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">사용자설치(재컴파일)</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-jetson-orin-nano">1. Jetson Orin Nano 시스템 업데이트</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 필수 패키지 설치</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-cuda-cudnn">3. CUDA 및 cuDNN 확인</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-opencv">4. OpenCV 소스 코드 다운로드</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-cmake-opencv">5. CMake로 OpenCV 빌드 설정</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-opencv">6. OpenCV 빌드 및 설치</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7">7. 설치 확인</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#8-gstreamer">8. GStreamer 플러그인 활성화 (선택 사항)</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#9-cuda">9. CUDA 지원 확인 (선택 사항)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">3. 파이썬 응용</li>
+          <li class="breadcrumb-item">3.1 opencv</li>
+      <li class="breadcrumb-item active">설치</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="jetson-orin-nano-opencv">jetson Orin Nano 보드 opencv 설치</h1>
+<h2 id="_1">일반설치</h2>
+<p>OpenCV를 컴파일하지 않고 일반적으로 설치하려면, Jetson Orin Nano에서 **APT 패키지 관리자를 통해 사전 컴파일된 OpenCV 패키지**를 설치할 수 있습니다. NVIDIA는 Jetson 보드를 위해 최적화된 OpenCV 버전을 미리 제공하므로, 이 방법은 간편하고 시간을 절약할 수 있습니다.</p>
+<hr />
+<h3 id="1">1. 시스템 업데이트</h3>
+<p>설치를 시작하기 전에 시스템 패키지를 업데이트합니다.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</code></pre></div>
+<hr />
+<h3 id="2-opencv">2. OpenCV 설치</h3>
+<p>Jetson Orin Nano는 JetPack SDK에 OpenCV가 포함되어 있으므로, 패키지 관리자를 통해 설치할 수 있습니다.</p>
+<h4 id="python-3-opencv">Python 3용 OpenCV 설치</h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-opencv
+</code></pre></div>
+<h4 id="_2">설치 확인</h4>
+<p>Python에서 OpenCV가 정상적으로 설치되었는지 확인합니다.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cv2; print(cv2.__version__)&quot;</span>
+</code></pre></div>
+<h4 id="gstreamer">추가 확인 (GStreamer 지원)</h4>
+<p><div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cv2; print(cv2.getBuildInformation())&quot;</span>
+</code></pre></div>
+출력에 **GStreamer**가 포함되어 있으면 Jetson의 GStreamer 플러그인이 정상적으로 활성화된 것입니다.</p>
+<hr />
+<h3 id="3-opencv">3. 설치된 OpenCV 버전 확인</h3>
+<p>APT를 통해 설치된 OpenCV의 버전을 확인하려면 다음 명령을 사용합니다.</p>
+<div class="highlight"><pre><span></span><code>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>libopencv
+</code></pre></div>
+<hr />
+<h3 id="4-opencv-cuda">4. OpenCV와 CUDA 가속 여부 확인</h3>
+<p>APT 패키지를 통해 설치된 OpenCV는 Jetson 환경에서 기본적으로 **CUDA 가속**을 지원합니다. 다음 명령으로 확인할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cv2; print(cv2.getBuildInformation())&quot;</span>
+</code></pre></div>
+<p>출력에서 <code>CUDA</code> 항목이 **YES**로 표시되면 CUDA 가속이 활성화된 상태입니다.</p>
+<hr />
+<h3 id="5-opencv">5. 설치된 OpenCV 활용하기</h3>
+<p>APT로 설치한 OpenCV는 Python과 함께 바로 사용할 수 있습니다. 카메라 테스트와 같은 기본 작업을 실행하여 설치를 확인합니다.</p>
+<h4 id="_3">간단한 카메라 테스트 코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;카메라를 열 수 없습니다.&quot;</span><span class="p">)</span>
+    <span class="n">exit</span><span class="p">()</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프레임을 읽을 수 없습니다.&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Camera Feed&quot;</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span>
+        <span class="k">break</span>
+
+<span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h4 id="apt-opencv"><strong>APT로 설치한 OpenCV의 장점</strong></h4>
+<ol>
+<li><strong>간단하고 빠름</strong>:</li>
+<li>소스 컴파일 과정 없이 설치할 수 있어 시간이 절약됩니다.</li>
+<li><strong>Jetson 환경에 최적화</strong>:</li>
+<li>NVIDIA가 제공하는 패키지는 기본적으로 CUDA 가속 및 GStreamer와 호환됩니다.</li>
+</ol>
+<h4 id="_4"><strong>제한 사항</strong></h4>
+<ul>
+<li>APT 패키지는 OpenCV의 최신 버전이 아닐 수 있습니다.</li>
+<li>OpenCV에 포함되지 않은 일부 추가 모듈(OpenCV Contrib 모듈 등)은 사용이 제한될 수 있습니다.</li>
+</ul>
+<hr />
+<h2 id="_5">사용자설치(재컴파일)</h2>
+<p>Jetson Orin Nano에서 OpenCV를 설치하는 방법은 Jetson Nano와 유사하지만, Jetson Orin Nano의 성능을 최적화하려면 NVIDIA의 **CUDA 가속**을 포함하도록 OpenCV를 빌드하는 것이 중요합니다. 아래는 Jetson Orin Nano에 OpenCV를 설치하는 단계별 가이드입니다.</p>
+<hr />
+<h3 id="1-jetson-orin-nano">1. Jetson Orin Nano 시스템 업데이트</h3>
+<p>Jetson Orin Nano를 최신 상태로 유지하기 위해 먼저 시스템을 업데이트합니다.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</code></pre></div>
+<hr />
+<h3 id="2">2. 필수 패키지 설치</h3>
+<p>OpenCV 설치를 위해 필요한 필수 패키지를 설치합니다.</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>libgtk2.0-dev<span class="w"> </span>pkg-config<span class="w"> </span>libavcodec-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libswscale-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-dev<span class="w"> </span>python3-numpy<span class="w"> </span>libtbb2<span class="w"> </span>libtbb-dev<span class="w"> </span>libjpeg-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtiff-dev<span class="w"> </span>libdc1394-22-dev
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gstreamer1.0-tools<span class="w"> </span>libgstreamer1.0-dev<span class="w"> </span>libgstreamer-plugins-base1.0-dev
+</code></pre></div>
+<hr />
+<h3 id="3-cuda-cudnn">3. CUDA 및 cuDNN 확인</h3>
+<p>Jetson Orin Nano에는 CUDA와 cuDNN이 기본 설치되어 있습니다. 아래 명령으로 버전을 확인합니다.</p>
+<div class="highlight"><pre><span></span><code>nvcc<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h3 id="4-opencv">4. OpenCV 소스 코드 다운로드</h3>
+<p>OpenCV와 추가 모듈(OpenCV Contrib)을 GitHub에서 다운로드합니다.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/opencv/opencv.git
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/opencv/opencv_contrib.git
+</code></pre></div>
+<hr />
+<h3 id="5-cmake-opencv">5. CMake로 OpenCV 빌드 설정</h3>
+<p>빌드 디렉토리를 생성하고 OpenCV를 CUDA 지원으로 구성합니다.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/opencv
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+
+cmake<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span>/usr/local<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>~/opencv_contrib/modules<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">WITH_CUDA</span><span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">ENABLE_FAST_MATH</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">CUDA_FAST_MATH</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">WITH_CUDNN</span><span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">OPENCV_DNN_CUDA</span><span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">BUILD_opencv_python3</span><span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">PYTHON3_EXECUTABLE</span><span class="o">=</span><span class="k">$(</span>which<span class="w"> </span>python3<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-D<span class="w"> </span><span class="nv">BUILD_EXAMPLES</span><span class="o">=</span>ON<span class="w"> </span>..
+</code></pre></div>
+<hr />
+<h3 id="6-opencv">6. OpenCV 빌드 및 설치</h3>
+<p>Jetson Orin Nano는 멀티코어 프로세서를 지원하므로 <code>-j</code> 옵션으로 빌드 속도를 높일 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
+sudo<span class="w"> </span>ldconfig
+</code></pre></div>
+<hr />
+<h3 id="7">7. 설치 확인</h3>
+<p>Python 환경에서 OpenCV가 정상적으로 설치되었는지 확인합니다.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cv2; print(cv2.__version__)&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="8-gstreamer">8. GStreamer 플러그인 활성화 (선택 사항)</h3>
+<p>Jetson Orin Nano에서 카메라와 GStreamer를 활용하려면 OpenCV가 GStreamer를 지원하는지 확인합니다.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cv2; print(cv2.getBuildInformation())&quot;</span>
+</code></pre></div>
+<p>출력에 **GStreamer**가 포함되어 있으면 성공적으로 설치된 것입니다. 포함되어 있지 않다면 빌드 단계에서 <code>-D WITH_GSTREAMER=ON</code>을 추가하고 다시 빌드하세요.</p>
+<hr />
+<h3 id="9-cuda">9. CUDA 지원 확인 (선택 사항)</h3>
+<p>OpenCV가 CUDA를 지원하는지 확인하려면 다음 명령을 실행합니다.</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import cv2; print(cv2.getBuildInformation())&quot;</span>
+</code></pre></div>
+<p>출력에 **CUDA YES**가 포함되어 있으면 CUDA 지원이 활성화된 상태입니다.</p>
+<hr />
+<h4 id="_6">참고 사항</h4>
+<ol>
+<li>OpenCV 빌드 및 설치는 시간이 오래 걸릴 수 있습니다. 설치 중 Jetson Orin Nano의 CPU와 메모리 사용량이 증가할 수 있습니다.</li>
+<li>Jetson Orin Nano는 높은 성능의 GPU를 제공하므로 CUDA 가속을 사용하는 OpenCV 애플리케이션에서 뛰어난 성능을 발휘합니다.</li>
+</ol>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../opencv/" class="btn btn-neutral float-left" title="개요"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../opencv_numpy/" class="btn btn-neutral float-right" title="넘파이">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../opencv/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../opencv_numpy/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

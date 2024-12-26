@@ -1,0 +1,80 @@
+
+body {
+    font-size: 12px;
+}
+
+p {
+    font-size: 12px;
+}
+
+h1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #c96262;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #c78b47;
+}
+
+h3 {
+    font-size: 12px;
+    font-weight: bold;
+    color: #c96262;
+}
+
+h4 {
+    font-size: 12px;
+    font-weight: bold;
+    color: #633333;
+}
+
+
+
+
+mc1{
+    font-size: 14px;
+    color: #c96262;
+}
+mc2{
+    font-size: 14px;
+    font-weight: bold;
+    color: #c96262;
+}
+
+mc3{
+    font-size: 12px;
+    color: #c96262;
+}
+
+.box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.warning {
+    border: 1px solid #FF9800;
+    padding: 10px;
+    background-color: #FFF3E0;
+    border-radius: 5px;
+}
+
+.admonition-note::before {
+    content: "🖋 "; /* 노트 아이콘 */
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}
+.admonition-tip::before {
+    content: "💡 "; /* 팁 아이콘 */
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}
+.admonition-warning::before {
+    content: "⚠ "; /* 경고 아이콘 */
+    font-size: 1.2em;
+    margin-right: 0.5em;
+}

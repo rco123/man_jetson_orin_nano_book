@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>색상처리예제 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\uc0c9\uc0c1\ucc98\ub9ac\uc608\uc81c";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\uc751\uc6a9\\opencv\\opencv_color.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >3.1 opencv</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">색상처리예제</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#1">1. 색상 공간 변환</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_1">코드:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">2. 특정 색상 필터링</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_2">코드:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3">3. 이미지의 색상 히스토그램</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_3">코드:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4">4. 색상 반전</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_4">코드:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5">5. 이미지 블러링 및 색상 변경</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#_5">코드:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">실행 전 준비사항</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">3. 파이썬 응용</li>
+          <li class="breadcrumb-item">3.1 opencv</li>
+      <li class="breadcrumb-item active">색상처리예제</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="opencv">OpenCV 색상 처리 예제</h1>
+<p>Jetson Nano에서 OpenCV를 사용하여 이미지 또는 비디오의 색상을 처리하는 예제입니다.</p>
+<hr />
+<h3 id="1">1. <strong>색상 공간 변환</strong></h3>
+<p>이미지의 색상 공간을 BGR에서 HSV로 변환하거나, 다른 색상 공간으로 변환하는 기본 예제입니다.</p>
+<h4 id="_1">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 이미지를 읽어옵니다</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이미지를 로드할 수 없습니다.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># BGR에서 HSV로 변환</span>
+    <span class="n">hsv_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2HSV</span><span class="p">)</span>
+
+    <span class="c1"># BGR에서 GRAY로 변환</span>
+    <span class="n">gray_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+
+    <span class="c1"># 이미지 출력</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Original Image&quot;</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;HSV Image&quot;</span><span class="p">,</span> <span class="n">hsv_image</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Gray Image&quot;</span><span class="p">,</span> <span class="n">gray_image</span><span class="p">)</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="2">2. <strong>특정 색상 필터링</strong></h3>
+<p>HSV 색상 공간에서 특정 색상(예: 빨간색, 파란색 등)을 추출합니다.</p>
+<h4 id="_2">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 이미지를 읽어옵니다</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이미지를 로드할 수 없습니다.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># BGR에서 HSV로 변환</span>
+    <span class="n">hsv</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2HSV</span><span class="p">)</span>
+
+    <span class="c1"># 빨간색 범위 정의</span>
+    <span class="n">lower_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">70</span><span class="p">])</span>
+    <span class="n">upper_red</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span>
+
+    <span class="c1"># 빨간색에 해당하는 마스크 생성</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">inRange</span><span class="p">(</span><span class="n">hsv</span><span class="p">,</span> <span class="n">lower_red</span><span class="p">,</span> <span class="n">upper_red</span><span class="p">)</span>
+
+    <span class="c1"># 원본 이미지와 마스크 적용</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="c1"># 결과 출력</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Original Image&quot;</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Red Color Filtered&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="3">3. <strong>이미지의 색상 히스토그램</strong></h3>
+<p>이미지의 색상 분포를 히스토그램으로 계산합니다.</p>
+<h4 id="_3">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 이미지를 읽어옵니다</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이미지를 로드할 수 없습니다.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># 각 채널별 히스토그램 계산</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+        <span class="n">hist</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">calcHist</span><span class="p">([</span><span class="n">image</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Color Histogram&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Pixel Intensity&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="4">4. <strong>색상 반전</strong></h3>
+<p>이미지의 색상을 반전하는 예제입니다.</p>
+<h4 id="_4">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 이미지를 읽어옵니다</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이미지를 로드할 수 없습니다.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># 색상 반전</span>
+    <span class="n">inverted_image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+
+    <span class="c1"># 결과 출력</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Original Image&quot;</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Inverted Image&quot;</span><span class="p">,</span> <span class="n">inverted_image</span><span class="p">)</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="5">5. <strong>이미지 블러링 및 색상 변경</strong></h3>
+<p>이미지를 블러링한 뒤 특정 색상만 강조합니다.</p>
+<h4 id="_5">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># 이미지를 읽어옵니다</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;이미지를 로드할 수 없습니다.&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># 이미지 블러링</span>
+    <span class="n">blurred</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># HSV로 변환 후 특정 색상만 추출 (파란색 예제)</span>
+    <span class="n">hsv</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2HSV</span><span class="p">)</span>
+    <span class="n">lower_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">upper_blue</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">140</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">])</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">inRange</span><span class="p">(</span><span class="n">hsv</span><span class="p">,</span> <span class="n">lower_blue</span><span class="p">,</span> <span class="n">upper_blue</span><span class="p">)</span>
+
+    <span class="c1"># 원본 이미지에 색상 강조</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="c1"># 결과 출력</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Blurred Image&quot;</span><span class="p">,</span> <span class="n">blurred</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Blue Color Enhanced&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="_6">실행 전 준비사항</h3>
+<ol>
+<li>Jetson Nano에서 이미지를 사용하려면 <code>sample.jpg</code> 파일을 준비하세요.</li>
+<li>카메라 입력으로 테스트하려면 <code>cv2.VideoCapture()</code>를 사용해 입력 프레임을 처리할 수 있도록 코드를 변경하세요.</li>
+</ol>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../opencv_numpy/" class="btn btn-neutral float-left" title="넘파이"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../opencv_jetson/" class="btn btn-neutral float-right" title="젯슨보드예제">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../opencv_numpy/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../opencv_jetson/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

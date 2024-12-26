@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.3 변수타입 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.3 \ubcc0\uc218\ud0c0\uc785";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\\\ubcc0\uc218\ud0c0\uc785.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">2.3 변수타입</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-numeric-types">1. 숫자형 (Numeric Types)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-int">(1) 정수형 (int)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-float">(2) 실수형 (float)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-complex">(3) 복소수형 (complex)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-string">2. 문자열 (String)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-boolean">3. 불린형 (Boolean)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-nonetype">4. NoneType</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-sequence-types">5. 시퀀스형 (Sequence Types)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-list">(1) 리스트 (list)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-tuple">(2) 튜플 (tuple)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-str">(3) 문자열 (str)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-set-types">6. 집합형 (Set Types)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-set">(1) 집합 (set)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-frozenset">(2) 불변 집합 (frozenset)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-mapping-types">7. 매핑형 (Mapping Types)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dict">딕셔너리 (dict)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8">8. 바이너리 데이터 타입</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-bytes">(1) 바이트 (bytes)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-bytearray">(2) 바이트 배열 (bytearray)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9">9. 기타 타입</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-enumerate">(1) 열거형 (enumerate)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-range">(2) 레인지 (range)</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. 파이썬 기초</li>
+      <li class="breadcrumb-item active">2.3 변수타입</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">변수 데이터 타입</h1>
+<p>파이썬에서 변수는 다양한 데이터 타입을 가질 수 있으며, 변수의 타입은 데이터의 종류에 따라 자동으로 결정됩니다. 여기서는 파이썬의 **기본 데이터 타입**과 그 특징을 설명합니다.</p>
+<hr />
+<h2 id="1-numeric-types">1. <strong>숫자형 (Numeric Types)</strong></h2>
+<h3 id="1-int">(1) <strong>정수형 (int)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 정수를 표현하는 타입.</li>
+<li>크기의 제한이 없으며, 메모리가 허용하는 범위까지 사용 가능.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;int&#39;&gt;</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2-float">(2) <strong>실수형 (float)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 부동소수점 숫자를 표현.</li>
+<li>소수점 이하 자릿수를 포함한 값을 다룰 때 사용.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;float&#39;&gt;</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3-complex">(3) <strong>복소수형 (complex)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 복소수를 표현. 실수부와 허수부를 포함.</li>
+<li><code>a + bj</code> 형태로 표현하며, <code>j</code>는 허수를 나타냄.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">complex_num</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">complex_num</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;complex&#39;&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">complex_num</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>  <span class="c1"># 3.0 (실수부)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">complex_num</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>  <span class="c1"># 4.0 (허수부)</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="2-string">2. <strong>문자열 (String)</strong></h2>
+<ul>
+<li><strong>설명</strong>: 문자나 문자열을 표현하는 타입. 작은따옴표(<code>'</code>) 또는 큰따옴표(<code>"</code>)로 감싸서 표현.</li>
+<li>문자열은 불변(immutable)하며, 인덱싱과 슬라이싱을 지원.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Hello, World!&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;str&#39;&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># &#39;A&#39; (인덱싱)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># &#39;Ali&#39; (슬라이싱)</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="3-boolean">3. <strong>불린형 (Boolean)</strong></h2>
+<ul>
+<li><strong>설명</strong>: 참(<code>True</code>)과 거짓(<code>False</code>)을 표현하는 타입.</li>
+<li>주로 조건문이나 논리 연산에 사용.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">is_active</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">is_logged_in</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">is_active</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;bool&#39;&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">is_active</span> <span class="ow">and</span> <span class="n">is_logged_in</span><span class="p">)</span>  <span class="c1"># False</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="4-nonetype">4. <strong>NoneType</strong></h2>
+<ul>
+<li><strong>설명</strong>: 값이 없음을 나타내는 타입. <code>None</code>은 다른 언어의 <code>null</code>과 유사.</li>
+<li>주로 변수를 초기화하거나 함수에서 반환 값이 없음을 나타낼 때 사용.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;NoneType&#39;&gt;</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="5-sequence-types">5. <strong>시퀀스형 (Sequence Types)</strong></h2>
+<h3 id="1-list">(1) <strong>리스트 (list)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 변경 가능한(mutable) 순서가 있는 컬렉션. 다양한 데이터 타입 혼합 가능.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">fruits</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;list&#39;&gt;</span>
+<span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>  <span class="c1"># 리스트에 추가</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>  <span class="c1"># [&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;orange&#39;]</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2-tuple">(2) <strong>튜플 (tuple)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 변경 불가능한(immutable) 순서가 있는 컬렉션.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">coordinates</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;tuple&#39;&gt;</span>
+<span class="c1"># coordinates[0] = 15  # TypeError: 튜플은 변경 불가</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3-str">(3) <strong>문자열 (str)</strong></h3>
+<ul>
+<li>이미 위에서 설명한 대로, 문자열도 시퀀스형의 일종.</li>
+</ul>
+<hr />
+<h2 id="6-set-types">6. <strong>집합형 (Set Types)</strong></h2>
+<h3 id="1-set">(1) <strong>집합 (set)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 중복되지 않는 항목들의 변경 가능한(mutable) 집합. 순서가 없음.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;set&#39;&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># {1, 2, 3, 4}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2-frozenset">(2) <strong>불변 집합 (frozenset)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 변경 불가능한(immutable) 집합.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">immutable_set</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">immutable_set</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;frozenset&#39;&gt;</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="7-mapping-types">7. <strong>매핑형 (Mapping Types)</strong></h2>
+<h3 id="dict"><strong>딕셔너리 (dict)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 키-값 쌍으로 이루어진 변경 가능한 컬렉션.</li>
+<li>키는 고유해야 하며, 해시 가능한 객체여야 함.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">student</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">student</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;dict&#39;&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>  <span class="c1"># &#39;Alice&#39;</span>
+<span class="n">student</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">26</span>  <span class="c1"># 값 변경</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="8">8. <strong>바이너리 데이터 타입</strong></h2>
+<h3 id="1-bytes">(1) <strong>바이트 (bytes)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 불변(immutable)한 바이너리 데이터를 표현.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">byte_data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">byte_data</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;bytes&#39;&gt;</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2-bytearray">(2) <strong>바이트 배열 (bytearray)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 변경 가능한(mutable) 바이너리 데이터.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">byte_array</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">([</span><span class="mi">65</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">67</span><span class="p">])</span>  <span class="c1"># ASCII 코드</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">byte_array</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;bytearray&#39;&gt;</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="9">9. <strong>기타 타입</strong></h2>
+<h3 id="1-enumerate">(1) <strong>열거형 (enumerate)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 열거된 객체를 반환.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">items</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2-range">(2) <strong>레인지 (range)</strong></h3>
+<ul>
+<li><strong>설명</strong>: 일정 범위의 숫자를 생성하는 객체.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># 0, 1, 2, 3, 4</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<p>파이썬의 데이터 타입은 매우 다양하며, 각 타입은 특정 상황에서 적합하게 사용할 수 있습니다. 필요에 따라 적절한 타입을 선택하면 코드의 가독성과 효율성이 향상됩니다.</p>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../%EB%B3%80%EC%88%98/" class="btn btn-neutral float-left" title="2.2 변수"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%EC%A0%9C%EC%96%B4%EB%AC%B8/" class="btn btn-neutral float-right" title="2.4 제어문">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../%EB%B3%80%EC%88%98/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%EC%A0%9C%EC%96%B4%EB%AC%B8/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

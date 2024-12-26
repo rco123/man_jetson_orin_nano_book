@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>4.3 PS4컨터롤러 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "4.3 PS4\ucee8\ud130\ub864\ub7ec";
+        var mkdocs_page_input_path = "\ud558\ub4dc\uc6e8\uc5b4\\ps4.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">4.3 PS4컨터롤러</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-bluetooth">1. Bluetooth 연결</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-python">2. Python으로 입력 데이터 처리</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">필수 라이브러리 설치</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python 코드 예제</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-ps4">3. PS4 컨트롤러 데이터 해석</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-jetson-orin-nano">4. Jetson Orin Nano에서 활용</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">예제: 조이스틱으로 서보 모터 제어</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5. 연결 종료</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6">6. 문제 해결</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">4. HW 제어</li>
+      <li class="breadcrumb-item active">4.3 PS4컨터롤러</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ps4">PS4 컨터롤러 연결</h1>
+<p>PlayStation 4(PS4) 컨트롤러를 Jetson Orin Nano에 연결하여 입력 장치로 사용하는 방법은 다음과 같습니다. 이 작업은 Bluetooth 또는 USB 케이블을 사용하여 연결할 수 있으며, Python과 관련 라이브러리를 사용하여 입력 데이터를 처리할 수 있습니다.</p>
+<p><center>
+<img  src="../../하드웨어/imgs/ps401.png"  width="400"  height="300" /> </p>
+<p>그림.1 &nbsp ps4</p>
+<p></center></p>
+<div style="height:20px"></div>
+
+<hr />
+<h2 id="1-bluetooth"><strong>1. Bluetooth 연결</strong></h2>
+<ol>
+<li>
+<p><strong>Bluetooth 활성화</strong><br />
+    Jetson Orin Nano에 Bluetooth가 없다면 USB 블루투스 동글을 연결해야 합니다. 다음 명령어로 Bluetooth 서비스를 활성화합니다:
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>bluetooth
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>bluetooth
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>PS4 컨트롤러 페어링</strong>  </p>
+<ul>
+<li>PS4 컨트롤러의 <code>PS</code> 버튼과 <code>Share</code> 버튼을 동시에 누르고, LED가 깜박일 때까지 유지합니다.
+    <center>
+        <img  src="../../하드웨어/imgs/ps402.png"  width="400"  height="300" /> 
+        <p>그림.2 연결</p> 
+    </center>
+    <div style="height:20px"></div></li>
+<li>
+<p>Jetson Orin Nano에서 Bluetooth 장치를 검색하고 연결합니다: 
+<div class="highlight"><pre><span></span><code>bluetoothctl
+</code></pre></div></p>
+</li>
+<li>
+<p>Bluetooth CLI에서:
+<div class="highlight"><pre><span></span><code>scan on
+pair [컨트롤러 MAC 주소]
+connect [컨트롤러 MAC 주소]
+trust [컨트롤러 MAC 주소]
+</code></pre></div>
+연결되면 LED가 켜진 상태로 유지됩니다.</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="2-python">2. <strong>Python으로 입력 데이터 처리</strong></h2>
+<p>Python과 관련 라이브러리를 사용하여 PS4 컨트롤러 입력을 처리할 수 있습니다.</p>
+<h3 id="_1"><strong>필수 라이브러리 설치</strong></h3>
+<ol>
+<li><strong><code>inputs</code> 라이브러리</strong> 설치:
+   <div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>inputs
+</code></pre></div></li>
+</ol>
+<hr />
+<h3 id="python"><strong>Python 코드 예제</strong></h3>
+<p>다음 코드는 PS4 컨트롤러의 버튼 및 조이스틱 입력을 읽는 기본 예제입니다:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">inputs</span> <span class="kn">import</span> <span class="n">get_gamepad</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listening for PS4 controller inputs...&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">events</span> <span class="o">=</span> <span class="n">get_gamepad</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Event: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">ev_type</span><span class="si">}</span><span class="s2">, Code: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s2">, State: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">state</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></p>
+<ul>
+<li><strong>출력 예시</strong>:<ul>
+<li><code>Event: Key, Code: BTN_SOUTH, State: 1</code> → X 버튼이 눌림.</li>
+<li><code>Event: Absolute, Code: ABS_X, State: 128</code> → 왼쪽 조이스틱 움직임.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="3-ps4">3. <strong>PS4 컨트롤러 데이터 해석</strong></h2>
+<ul>
+<li>
+<p><strong>버튼 매핑</strong>:</p>
+<ul>
+<li><code>BTN_SOUTH</code>: X 버튼</li>
+<li><code>BTN_EAST</code>: 원형 버튼</li>
+<li><code>BTN_NORTH</code>: 삼각형 버튼</li>
+<li><code>BTN_WEST</code>: 사각형 버튼</li>
+</ul>
+</li>
+<li>
+<p><strong>조이스틱</strong>:</p>
+<ul>
+<li><code>ABS_X</code>, <code>ABS_Y</code>: 왼쪽 조이스틱 (수평 및 수직 축)</li>
+<li><code>ABS_RX</code>, <code>ABS_RY</code>: 오른쪽 조이스틱</li>
+</ul>
+</li>
+<li>
+<p><strong>트리거</strong>:</p>
+<ul>
+<li><code>ABS_Z</code>: L2 트리거</li>
+<li><code>ABS_RZ</code>: R2 트리거</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="4-jetson-orin-nano">4. <strong>Jetson Orin Nano에서 활용</strong></h2>
+<p>PS4 컨트롤러 데이터를 Jetson Orin Nano의 애플리케이션(예: 로봇 제어, 게임, 시뮬레이션)에 통합합니다.</p>
+<h3 id="_2"><strong>예제: 조이스틱으로 서보 모터 제어</strong></h3>
+<ol>
+<li>
+<p><strong>필수 라이브러리 설치</strong>:
+   <div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>adafruit-circuitpython-servokit
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Python 코드</strong>:
+   <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">inputs</span> <span class="kn">import</span> <span class="n">get_gamepad</span>
+<span class="kn">from</span> <span class="nn">adafruit_servokit</span> <span class="kn">import</span> <span class="n">ServoKit</span>
+
+<span class="n">kit</span> <span class="o">=</span> <span class="n">ServoKit</span><span class="p">(</span><span class="n">channels</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">control_servo</span><span class="p">(</span><span class="n">x_axis</span><span class="p">):</span>
+    <span class="c1"># Convert joystick value (-32768 to 32767) to servo angle (0 to 180)</span>
+    <span class="n">angle</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_axis</span> <span class="o">+</span> <span class="mi">32768</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span> <span class="o">//</span> <span class="mi">65536</span>
+    <span class="n">kit</span><span class="o">.</span><span class="n">servo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listening for PS4 controller inputs...&quot;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">events</span> <span class="o">=</span> <span class="n">get_gamepad</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="s2">&quot;ABS_X&quot;</span><span class="p">:</span>  <span class="c1"># Left joystick horizontal</span>
+                <span class="n">control_servo</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h2 id="5">5. <strong>연결 종료</strong></h2>
+<p>ps 버턴을 10초가 계속 누르면, 전면부에 있는 LED가 꺼지며, 연결이 종료된다.</p>
+<p><center>
+    <img  src="../../하드웨어/imgs/ps403.png"  width="400"  height="300" /> 
+    <p>그림.2 종료</p> 
+</center></p>
+<div style="height:20px"></div>
+
+<h2 id="6">6. <strong>문제 해결</strong></h2>
+<ul>
+<li>
+<p><strong>컨트롤러가 인식되지 않을 때</strong>:</p>
+<ul>
+<li><code>dmesg</code> 명령으로 USB 또는 Bluetooth 장치 로그 확인.</li>
+<li>블루투스 동글 또는 USB 케이블 상태 확인.</li>
+</ul>
+</li>
+<li>
+<p><strong>입력 지연 발생</strong>:</p>
+<ul>
+<li>Jetson Orin Nano의 프로세스 우선순위를 조정하거나 실시간 입력 처리를 최적화.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p>이 가이드를 따라 PS4 컨트롤러를 Jetson Orin Nano와 성공적으로 연결하고 입력 데이터를 처리할 수 있습니다. 추가 도움이 필요하면 언제든지 문의하세요!</p>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../hw/" class="btn btn-neutral float-left" title="4.2 기초제어"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/" class="btn btn-neutral float-right" title="5.1 설치">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../hw/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

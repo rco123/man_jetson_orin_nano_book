@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/YOLO/yolo5%EC%84%A4%EC%B9%98/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>6.1 YOLO5 설치 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "6.1 YOLO5 \uc124\uce58";
+        var mkdocs_page_input_path = "YOLO\\yolo5\uc124\uce58.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/YOLO/yolo5%EC%84%A4%EC%B9%98/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">6.1 YOLO5 설치</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-jetson-orin-nano">1. Jetson Orin Nano 환경 준비</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-yolo">2. YOLO 모델 설치 및 실행</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-tensorrt">3. TensorRT 최적화 (선택 사항)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4. 사용 예제</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5. 성능 최적화 팁</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">6. YOLO</li>
+      <li class="breadcrumb-item active">6.1 YOLO5 설치</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="yolo5">YOLO5 설치</h1>
+<p>Jetson Orin Nano에서 YOLO를 사용하려면, NVIDIA의 하드웨어 가속을 활용하여 딥러닝 모델을 실행할 수 있습니다. Jetson Orin Nano는 CUDA와 TensorRT를 지원하므로 YOLO 모델을 최적화하여 효율적으로 사용할 수 있습니다. 아래는 YOLO를 Jetson Orin Nano에서 사용하는 과정을 단계별로 정리한 가이드입니다.</p>
+<hr />
+<h3 id="1-jetson-orin-nano">1. <strong>Jetson Orin Nano 환경 준비</strong></h3>
+<ol>
+<li>
+<p><strong>Python 및 필요한 라이브러리 설치</strong><br />
+   Python 및 패키지 관리 도구 <code>pip</code>를 설치합니다.
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
+pip3<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>YOLO 프레임워크 선택</strong><br />
+   YOLOv5, YOLOv7, YOLOv8 등 다양한 버전이 있으며, PyTorch 또는 TensorFlow 기반으로 실행됩니다. YOLOv5가 일반적으로 Jetson에서 많이 사용됩니다.</p>
+</li>
+</ol>
+<hr />
+<h3 id="2-yolo">2. <strong>YOLO 모델 설치 및 실행</strong></h3>
+<ol>
+<li>
+<p><strong>YOLOv5 설치</strong><br />
+   YOLOv5는 PyTorch를 기반으로 하므로 PyTorch를 먼저 설치해야 합니다. NVIDIA에서 Jetson용 PyTorch를 제공하므로 적합한 버전을 설치하세요.<br />
+   PyTorch 설치:
+   <div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://developer.download.nvidia.com/compute/redist/jp/vXX/pytorch/torch-&lt;version&gt;-cp&lt;python_version&gt;-linux_aarch64.whl
+pip3<span class="w"> </span>install<span class="w"> </span>torch-&lt;version&gt;-cp&lt;python_version&gt;-linux_aarch64.whl
+pip3<span class="w"> </span>install<span class="w"> </span>torchvision
+</code></pre></div>
+   YOLOv5 클론:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5.git
+<span class="nb">cd</span><span class="w"> </span>yolov5
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>모델 다운로드 및 테스트</strong><br />
+   YOLOv5의 사전 학습된 모델을 다운로드하여 테스트할 수 있습니다.
+   <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>detect.py<span class="w"> </span>--source<span class="w"> </span><span class="m">0</span><span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+</code></pre></div>
+   <code>--source</code>를 변경하여 웹캠(0) 또는 이미지 파일 경로를 입력할 수 있습니다.</p>
+</li>
+</ol>
+<hr />
+<h3 id="3-tensorrt">3. <strong>TensorRT 최적화 (선택 사항)</strong></h3>
+<p>Jetson Orin Nano의 TensorRT를 사용하여 YOLO 모델을 최적화하면 성능이 향상됩니다.
+1. <strong>ONNX 형식으로 변환</strong><br />
+   YOLO 모델을 ONNX로 내보냅니다.
+   <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">1</span>
+</code></pre></div></p>
+<ol>
+<li>
+<p><strong>TensorRT 변환</strong><br />
+   NVIDIA TensorRT로 ONNX 모델을 최적화합니다.
+   <div class="highlight"><pre><span></span><code>trtexec<span class="w"> </span>--onnx<span class="o">=</span>yolov5s.onnx<span class="w"> </span>--saveEngine<span class="o">=</span>yolov5s.trt<span class="w"> </span>--fp16
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>TensorRT 모델 실행</strong><br />
+   TensorRT 모델 실행을 위한 YOLO 구현체를 사용하거나 직접 코드를 작성합니다.</p>
+</li>
+</ol>
+<hr />
+<h3 id="4">4. <strong>사용 예제</strong></h3>
+<p>YOLO 모델을 Jetson Orin Nano에서 실행하고 카메라 스트림을 처리하거나 객체 감지를 수행합니다. OpenCV와 함께 사용할 수 있습니다.
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">yolov5</span> <span class="kn">import</span> <span class="n">YOLO</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s1">&#39;yolov5s.pt&#39;</span><span class="p">)</span>  <span class="c1"># 모델 로드</span>
+<span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1"># 웹캠 스트림 열기</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">ret</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">ret</span><span class="p">:</span>
+        <span class="k">break</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>  <span class="c1"># 객체 감지</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>  <span class="c1"># 결과 렌더링</span>
+    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;YOLO Detection&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">):</span>
+        <span class="k">break</span>
+
+<span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div></p>
+<hr />
+<h3 id="5">5. <strong>성능 최적화 팁</strong></h3>
+<ul>
+<li><strong>TensorRT FP16 사용</strong>: 모델 추론 속도를 높이기 위해 FP16 정밀도를 활용하세요.</li>
+<li><strong>CUDA Streams</strong>: GPU 사용률을 최적화하기 위해 CUDA 스트림을 사용하세요.</li>
+<li><strong>배치 크기</strong>: 가능한 한 큰 배치 크기를 설정하면 처리 속도가 향상됩니다.</li>
+<li><strong>GPU 모니터링</strong>: <code>tegrastats</code> 명령으로 GPU 및 CPU 리소스 사용을 모니터링하세요.</li>
+</ul>
+<hr />
+<p>Jetson Orin Nano에서 YOLO를 설정하고 실행하면서 추가적인 문제가 있으면 알려주세요!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/" class="btn btn-neutral float-left" title="5.5 정규화"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/" class="btn btn-neutral float-right" title="6.2 YOLO5 사용자학습">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

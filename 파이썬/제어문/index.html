@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.4 제어문 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.4 \uc81c\uc5b4\ubb38";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\\\uc81c\uc5b4\ubb38.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">2.4 제어문</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-conditional-statements">1. 조건문 (Conditional Statements)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-if-elif-else">(1) if, elif, else</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">(2) 중첩 조건문</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3">(3) 조건 표현식 (삼항 연산자)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-loops">2. 반복문 (Loops)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-for">(1) for 문</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-while">(2) while 문</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3_1">(3) 반복 제어 구문</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-exception-handling">3. 예외 처리 (Exception Handling)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-try-except-else-finally">(1) try, except, else, finally</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-comprehension">4. 컴프리헨션 (Comprehension)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1">(1) 리스트 컴프리헨션</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2_1">(2) 딕셔너리 컴프리헨션</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3_2">(3) 집합 컴프리헨션</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">5. 함수와 관련된 제어 구문</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-return">(1) return</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-pass">(2) pass</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-yield">(3) yield</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">요약</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. 파이썬 기초</li>
+      <li class="breadcrumb-item active">2.4 제어문</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">제어문</h1>
+<p>파이썬의 제어구문은 프로그램의 흐름을 제어하는 데 사용됩니다. 조건문과 반복문이 주된 제어구문이며, 추가로 예외 처리를 위한 구문도 포함됩니다.</p>
+<hr />
+<h2 id="1-conditional-statements">1. <strong>조건문 (Conditional Statements)</strong></h2>
+<h3 id="1-if-elif-else">(1) <code>if</code>, <code>elif</code>, <code>else</code></h3>
+<ul>
+<li>특정 조건에 따라 코드 블록을 실행하거나 건너뛰는 데 사용됩니다.</li>
+<li>
+<p><strong>구문 형식</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">조건식</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">코드</span>
+<span class="k">elif</span> <span class="n">다른</span> <span class="n">조건식</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">코드</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">코드</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A등급&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B등급&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C등급&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="2">(2) 중첩 조건문</h3>
+<ul>
+<li>조건문 안에 또 다른 조건문을 포함.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">has_ticket</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">has_ticket</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;입장 가능&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;티켓이 필요합니다&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;나이가 부족합니다&quot;</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3">(3) 조건 표현식 (삼항 연산자)</h3>
+<ul>
+<li>단일 표현식으로 조건에 따라 값을 선택.</li>
+<li>
+<p><strong>구문 형식</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">참일</span> <span class="n">때</span> <span class="n">값</span> <span class="k">if</span> <span class="n">조건식</span> <span class="k">else</span> <span class="n">거짓일</span> <span class="n">때</span> <span class="n">값</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+<span class="n">category</span> <span class="o">=</span> <span class="s2">&quot;성인&quot;</span> <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="k">else</span> <span class="s2">&quot;미성년자&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">category</span><span class="p">)</span>  <span class="c1"># 성인</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h2 id="2-loops">2. <strong>반복문 (Loops)</strong></h2>
+<h3 id="1-for">(1) <code>for</code> 문</h3>
+<ul>
+<li>반복 가능한 객체(리스트, 문자열, 튜플 등)를 순회.</li>
+<li>
+<p><strong>구문 형식</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">반복</span> <span class="n">가능한</span> <span class="n">객체</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">코드</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># 0, 1, 2, 3, 4</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>중첩 <code>for</code> 문</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="2-while">(2) <code>while</code> 문</h3>
+<ul>
+<li>조건식이 참인 동안 코드 블록을 반복.</li>
+<li>
+<p><strong>구문 형식</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="n">조건식</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">코드</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="3_1">(3) 반복 제어 구문</h3>
+<ul>
+<li>
+<p><strong><code>break</code></strong>: 반복문을 즉시 종료.
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># 0, 1, 2, 3, 4</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong><code>continue</code></strong>: 현재 반복을 건너뛰고 다음 반복으로 이동.
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># 0, 1, 3, 4</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong><code>else</code></strong>: 반복문이 정상 종료된 경우 실행.
+  <div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;반복 종료&quot;</span><span class="p">)</span>  <span class="c1"># 반복문이 break 없이 종료되면 실행</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h2 id="3-exception-handling">3. <strong>예외 처리 (Exception Handling)</strong></h2>
+<h3 id="1-try-except-else-finally">(1) <code>try</code>, <code>except</code>, <code>else</code>, <code>finally</code></h3>
+<ul>
+<li>프로그램 실행 중 발생할 수 있는 오류를 처리하여 중단을 방지.</li>
+<li>
+<p><strong>구문 형식</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">실행할</span> <span class="n">코드</span>
+<span class="k">except</span> <span class="n">예외</span> <span class="n">종류</span><span class="p">:</span>
+    <span class="n">예외</span> <span class="n">처리</span> <span class="n">코드</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">예외가</span> <span class="n">발생하지</span> <span class="n">않을</span> <span class="n">때</span> <span class="n">실행할</span> <span class="n">코드</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">항상</span> <span class="n">실행할</span> <span class="n">코드</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;숫자를 입력하세요: &quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="n">num</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0으로 나눌 수 없습니다.&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;숫자를 입력해야 합니다.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;정상적으로 처리되었습니다.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;프로그램 종료&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h2 id="4-comprehension">4. <strong>컴프리헨션 (Comprehension)</strong></h2>
+<h3 id="1">(1) 리스트 컴프리헨션</h3>
+<ul>
+<li><strong>설명</strong>: 반복문을 사용하여 리스트를 간결하게 생성.</li>
+<li>
+<p><strong>구문 형식</strong>:
+  <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">표현식</span> <span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">반복</span> <span class="n">가능한</span> <span class="n">객체</span> <span class="k">if</span> <span class="n">조건식</span><span class="p">]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>  <span class="c1"># [0, 4, 16, 36, 64]</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="2_1">(2) 딕셔너리 컴프리헨션</h3>
+<ul>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>  <span class="c1"># {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3_2">(3) 집합 컴프리헨션</h3>
+<ul>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">unique_squares</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_squares</span><span class="p">)</span>  <span class="c1"># {0, 1, 4, 9, 16, 25, 36, 49, 64, 81}</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="5">5. <strong>함수와 관련된 제어 구문</strong></h2>
+<h3 id="1-return">(1) <code>return</code></h3>
+<ul>
+<li>함수에서 값을 반환하고 실행 종료.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># 5</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2-pass">(2) <code>pass</code></h3>
+<ul>
+<li>실행할 코드가 없을 때 사용.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">pass</span>  <span class="c1"># 아무 작업도 하지 않음</span>
+</code></pre></div></li>
+</ul>
+<h3 id="3-yield">(3) <code>yield</code></h3>
+<ul>
+<li>제너레이터 함수에서 값을 반환하고 상태를 유지.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">generate_numbers</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">i</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">generate_numbers</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>  <span class="c1"># 0, 1, 2</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h3 id="_2">요약</h3>
+<ul>
+<li><strong>조건문</strong>: <code>if</code>, <code>elif</code>, <code>else</code>로 분기 처리.</li>
+<li><strong>반복문</strong>: <code>for</code>, <code>while</code>로 반복 처리. <code>break</code>, <code>continue</code>, <code>else</code>로 제어 가능.</li>
+<li><strong>예외 처리</strong>: <code>try</code>, <code>except</code>, <code>else</code>, <code>finally</code>로 오류 관리.</li>
+<li><strong>컴프리헨션</strong>: 반복문과 조건을 간결하게 활용.</li>
+<li><strong>기타</strong>: <code>pass</code>, <code>return</code>, <code>yield</code>로 추가 흐름 제어.</li>
+</ul>
+<p>제어구문을 잘 활용하면 복잡한 프로그램도 간결하고 효율적으로 작성할 수 있습니다. 😊</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/" class="btn btn-neutral float-left" title="2.3 변수타입"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../%ED%95%A8%EC%88%98/" class="btn btn-neutral float-right" title="2.5 함수">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../%ED%95%A8%EC%88%98/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>2.6 클래스 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "2.6 \ud074\ub798\uc2a4";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\\\ud074\ub798\uc2a4.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">2.6 클래스</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1">1. 클래스의 기본 개념</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2. 클래스 정의</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">3. 객체 생성 및 사용</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">객체 생성</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">객체 속성 접근</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">객체 메서드 호출</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4. 클래스의 구성 요소</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-__init__">(1) 생성자 메서드 (__init__)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2_1">(2) 인스턴스 변수</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3_1">(3) 클래스 변수</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4_1">(4) 메서드</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-classmethod">(5) 클래스 메서드 (@classmethod)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-staticmethod">(6) 정적 메서드 (@staticmethod)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-inheritance">5. 상속 (Inheritance)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">상속의 개념</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">기본 구문</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">예제</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-polymorphism">6. 다형성 (Polymorphism)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">개념</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-magic-methods">7. 특수 메서드 (Magic Methods)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">주요 특수 메서드</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8">8. 데이터 캡슐화와 접근 제한</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">캡슐화</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">접근 제한자</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#9">9. 클래스 활용 예제</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_11">간단한 계산기 클래스</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_12">요약</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">2. 파이썬 기초</li>
+      <li class="breadcrumb-item active">2.6 클래스</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="class">파이썬 클래스 (Class): 개념 및 사용법</h1>
+<p><strong>클래스(Class)</strong> 는 객체 지향 프로그래밍(OOP, Object-Oriented Programming)의 기본 단위로, 데이터와 해당 데이터를 처리하는 메서드(함수)를 함께 정의하는 구조입니다. 클래스를 사용하면 프로그램을 논리적으로 구조화하고 코드 재사용성을 높일 수 있습니다.</p>
+<hr />
+<h2 id="1">1. <strong>클래스의 기본 개념</strong></h2>
+<ol>
+<li><strong>클래스(Class)</strong>: 객체를 생성하기 위한 청사진(템플릿)입니다.</li>
+<li><strong>객체(Object)</strong>: 클래스에서 생성된 인스턴스(instance)입니다.</li>
+<li><strong>속성(Attribute)</strong>: 객체의 데이터(변수)입니다.</li>
+<li><strong>메서드(Method)</strong>: 객체가 수행할 수 있는 동작(함수)입니다.</li>
+</ol>
+<hr />
+<h2 id="2">2. <strong>클래스 정의</strong></h2>
+<ul>
+<li><code>class</code> 키워드를 사용하여 클래스를 정의합니다.</li>
+<li>
+<p><strong>구문</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">클래스이름</span><span class="p">:</span>
+    <span class="n">클래스</span> <span class="n">변수</span>
+    <span class="n">메서드</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>  <span class="c1"># 생성자 메서드</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+
+    <span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># 메서드</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;안녕하세요, 저는 </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">이고, 나이는 </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">입니다.&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h2 id="3">3. <strong>객체 생성 및 사용</strong></h2>
+<h3 id="_1">객체 생성</h3>
+<ul>
+<li>클래스를 호출하여 객체를 생성합니다.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;철수&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&quot;영희&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<h3 id="_2">객체 속성 접근</h3>
+<ul>
+<li>객체의 속성에 점(<code>.</code>) 연산자를 사용하여 접근합니다.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># 철수</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p2</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>   <span class="c1"># 30</span>
+</code></pre></div></li>
+</ul>
+<h3 id="_3">객체 메서드 호출</h3>
+<ul>
+<li>점(<code>.</code>) 연산자로 메서드를 호출합니다.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="n">p1</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>  <span class="c1"># 안녕하세요, 저는 철수이고, 나이는 25입니다.</span>
+<span class="n">p2</span><span class="o">.</span><span class="n">greet</span><span class="p">()</span>  <span class="c1"># 안녕하세요, 저는 영희이고, 나이는 30입니다.</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="4">4. <strong>클래스의 구성 요소</strong></h2>
+<h3 id="1-__init__">(1) <strong>생성자 메서드 (<code>__init__</code>)</strong></h3>
+<ul>
+<li>객체가 생성될 때 호출되어 초기화 작업을 수행합니다.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">breed</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">breed</span> <span class="o">=</span> <span class="n">breed</span>
+
+<span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;바둑이&quot;</span><span class="p">,</span> <span class="s2">&quot;진돗개&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dog</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>  <span class="c1"># 바둑이</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dog</span><span class="o">.</span><span class="n">breed</span><span class="p">)</span>  <span class="c1"># 진돗개</span>
+</code></pre></div></li>
+</ul>
+<h3 id="2_1">(2) <strong>인스턴스 변수</strong></h3>
+<ul>
+<li>객체마다 고유한 값을 가지는 변수.</li>
+<li><code>self</code>를 통해 정의합니다.</li>
+</ul>
+<h3 id="3_1">(3) <strong>클래스 변수</strong></h3>
+<ul>
+<li>모든 객체가 공유하는 변수. 클래스 이름으로 접근합니다.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Counter</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 클래스 변수</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">Counter</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Counter</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>  <span class="c1"># 2</span>
+</code></pre></div></li>
+</ul>
+<h3 id="4_1">(4) <strong>메서드</strong></h3>
+<ul>
+<li>객체가 수행할 수 있는 동작을 정의한 함수.</li>
+<li><code>self</code>를 첫 번째 매개변수로 사용하여 객체를 참조합니다.</li>
+</ul>
+<h3 id="5-classmethod">(5) <strong>클래스 메서드 (<code>@classmethod</code>)</strong></h3>
+<ul>
+<li>클래스 변수를 다루기 위해 사용. 클래스 자체를 첫 번째 매개변수로 받습니다.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">MyClass</span><span class="o">.</span><span class="n">increment</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">MyClass</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>  <span class="c1"># 1</span>
+</code></pre></div></li>
+</ul>
+<h3 id="6-staticmethod">(6) <strong>정적 메서드 (<code>@staticmethod</code>)</strong></h3>
+<ul>
+<li>클래스와 객체와 관련 없이 동작하는 메서드.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Math</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Math</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># 8</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="5-inheritance">5. <strong>상속 (Inheritance)</strong></h2>
+<h3 id="_4">상속의 개념</h3>
+<ul>
+<li>기존 클래스를 기반으로 새로운 클래스를 정의.</li>
+<li>코드 재사용성을 높이고, 클래스 계층 구조를 형성.</li>
+</ul>
+<h3 id="_5">기본 구문</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">부모클래스</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">자식클래스</span><span class="p">(</span><span class="n">부모클래스</span><span class="p">):</span>
+    <span class="o">...</span>
+</code></pre></div>
+<h3 id="_6">예제</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;소리를 냅니다.&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># 메서드 오버라이딩</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">가 멍멍 소리를 냅니다.&quot;</span><span class="p">)</span>
+
+<span class="n">dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;바둑이&quot;</span><span class="p">)</span>
+<span class="n">dog</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>  <span class="c1"># 바둑이가 멍멍 소리를 냅니다.</span>
+</code></pre></div>
+<hr />
+<h2 id="6-polymorphism">6. <strong>다형성 (Polymorphism)</strong></h2>
+<h3 id="_7">개념</h3>
+<ul>
+<li>같은 메서드 이름이지만, 클래스에 따라 다르게 동작.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">speak</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">가 야옹 소리를 냅니다.&quot;</span><span class="p">)</span>
+
+<span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dog</span><span class="p">(</span><span class="s2">&quot;바둑이&quot;</span><span class="p">),</span> <span class="n">Cat</span><span class="p">(</span><span class="s2">&quot;나비&quot;</span><span class="p">)]</span>
+
+<span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="n">animals</span><span class="p">:</span>
+    <span class="n">animal</span><span class="o">.</span><span class="n">speak</span><span class="p">()</span>
+<span class="c1"># 바둑이가 멍멍 소리를 냅니다.</span>
+<span class="c1"># 나비가 야옹 소리를 냅니다.</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="7-magic-methods">7. <strong>특수 메서드 (Magic Methods)</strong></h2>
+<h3 id="_8">주요 특수 메서드</h3>
+<ul>
+<li><code>__str__</code>: 객체의 문자열 표현 정의.</li>
+<li><code>__repr__</code>: 객체의 개발자용 문자열 표현 정의.</li>
+<li><code>__add__</code>: 객체 간 덧셈 연산 정의.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Vector</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Vector(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">v3</span> <span class="o">=</span> <span class="n">v1</span> <span class="o">+</span> <span class="n">v2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v3</span><span class="p">)</span>  <span class="c1"># Vector(6, 8)</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="8">8. <strong>데이터 캡슐화와 접근 제한</strong></h2>
+<h3 id="_9">캡슐화</h3>
+<ul>
+<li>객체의 내부 데이터를 보호하고, 외부 접근을 제한.</li>
+</ul>
+<h3 id="_10">접근 제한자</h3>
+<ul>
+<li><strong>공개 (Public)</strong>: 모든 곳에서 접근 가능. (기본)</li>
+<li><strong>비공개 (Private)</strong>: 클래스 내부에서만 접근 가능. 변수 이름 앞에 <code>__</code> 사용.</li>
+<li><strong>예제</strong>:
+  <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BankAccount</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">balance</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span> <span class="o">=</span> <span class="n">balance</span>  <span class="c1"># 비공개 변수</span>
+
+    <span class="k">def</span> <span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span> <span class="o">+=</span> <span class="n">amount</span>
+
+    <span class="k">def</span> <span class="nf">get_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__balance</span>
+
+<span class="n">account</span> <span class="o">=</span> <span class="n">BankAccount</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">account</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">account</span><span class="o">.</span><span class="n">get_balance</span><span class="p">())</span>  <span class="c1"># 1500</span>
+<span class="c1"># print(account.__balance)  # AttributeError</span>
+</code></pre></div></li>
+</ul>
+<hr />
+<h2 id="9">9. <strong>클래스 활용 예제</strong></h2>
+<h3 id="_11">간단한 계산기 클래스</h3>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">+=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">-=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">*=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">/=</span> <span class="n">value</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;0으로 나눌 수 없습니다.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+<span class="n">calc</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">calc</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>  <span class="c1"># 20</span>
+</code></pre></div>
+<hr />
+<h3 id="_12">요약</h3>
+<ol>
+<li>**클래스**는 객체를 생성하기 위한 템플릿.</li>
+<li>**생성자 메서드 (<code>__init__</code>)**로 객체 초기화.</li>
+<li>**속성**은 객체의 데이터, **메서드**는 객체의 동작.</li>
+<li>**상속**과 **다형성**으로 객체 간 관계를 형성.</li>
+<li>**특수 메서드**로 연산자 동작 커스터마이징 가능.</li>
+<li>**캡슐화**로 데이터를 보호하고 관리.</li>
+</ol>
+<p>클래스를 잘 활용하면 복잡한 프로그램도 논리적으로 구조화할 수 있습니다! 😊</p>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../%ED%95%A8%EC%88%98/" class="btn btn-neutral float-left" title="2.5 함수"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/" class="btn btn-neutral float-right" title="개요">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../%ED%95%A8%EC%88%98/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

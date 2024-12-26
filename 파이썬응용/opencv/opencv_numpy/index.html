@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>넘파이 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\ub118\ud30c\uc774";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\uc751\uc6a9\\opencv\\opencv_numpy.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" >3.1 opencv</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">넘파이</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#numpy">NumPy의 주요 특징</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#numpy_1">NumPy의 주요 구성 요소</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#numpy_2">NumPy의 장점</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#numpy_3">NumPy와 다른 도구와의 연계</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">실용 예제</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1">1. 이미지 데이터 처리</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2">2. 데이터 분석</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">3. 파이썬 응용</li>
+          <li class="breadcrumb-item">3.1 opencv</li>
+      <li class="breadcrumb-item active">넘파이</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="numpy-numerical-python"><strong>NumPy (Numerical Python)</strong></h1>
+<p>NumPy는 Python에서 수치 연산과 과학 계산을 효율적으로 수행할 수 있게 해주는 **오픈소스 라이브러리**입니다. 특히 **다차원 배열(NumPy Array)**과 이를 기반으로 하는 다양한 연산 기능을 제공하여 데이터 처리와 분석에서 핵심적인 역할을 합니다.</p>
+<hr />
+<h3 id="numpy"><strong>NumPy의 주요 특징</strong></h3>
+<ol>
+<li><strong>다차원 배열 객체</strong>:</li>
+<li>NumPy의 핵심 데이터 구조는 <code>ndarray</code>로, 다양한 차원의 배열(1D, 2D, 3D 등)을 지원합니다.</li>
+<li>
+<p>배열은 일반 Python 리스트보다 메모리 효율적이고 연산 속도가 빠릅니다.</p>
+</li>
+<li>
+<p><strong>벡터화 연산 (Vectorization)</strong>:</p>
+</li>
+<li>반복문 없이 배열 전체에 대해 연산을 수행할 수 있어 코드가 간결하고 실행 속도가 빠릅니다.</li>
+<li>
+<p>예: 배열의 모든 요소에 2를 더하기, 요소별 곱셈 등.</p>
+</li>
+<li>
+<p><strong>브로드캐스팅</strong>:</p>
+</li>
+<li>크기가 다른 배열 간에도 연산이 가능하도록 자동으로 크기를 맞추는 기능.</li>
+<li>
+<p>예: (3,) 배열과 (3, 3) 배열 간 연산.</p>
+</li>
+<li>
+<p><strong>다양한 내장 함수</strong>:</p>
+</li>
+<li>배열 생성, 조작, 변환.</li>
+<li>선형대수 연산(행렬 곱, 역행렬, 고유값 분해 등).</li>
+<li>통계 연산(평균, 분산, 표준편차 등).</li>
+<li>
+<p>고속 푸리에 변환(FFT).</p>
+</li>
+<li>
+<p><strong>확장성</strong>:</p>
+</li>
+<li>다른 과학 및 데이터 분석 라이브러리(Pandas, SciPy, TensorFlow 등)의 기반으로 사용됩니다.</li>
+</ol>
+<hr />
+<h3 id="numpy_1"><strong>NumPy의 주요 구성 요소</strong></h3>
+<ol>
+<li><strong>배열 생성</strong></li>
+<li>
+<p>배열을 생성하고 초기화하는 다양한 함수 제공.
+   <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 1D 배열 생성</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># 2D 배열 생성</span>
+<span class="n">arr2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+
+<span class="c1"># 특정 값으로 채운 배열</span>
+<span class="n">zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># 2x3 배열, 0으로 초기화</span>
+<span class="n">ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>    <span class="c1"># 3x3 배열, 1로 초기화</span>
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 3x2 배열, 랜덤 값</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>배열 연산</strong></p>
+</li>
+<li>
+<p>NumPy는 배열 요소별 연산을 지원합니다.
+   <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="c1"># 요소별 연산</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># [5, 7, 9]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>  <span class="c1"># [4, 10, 18]</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># [1, 4, 9]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>인덱싱과 슬라이싱</strong></p>
+</li>
+<li>
+<p>NumPy 배열은 Python 리스트와 유사한 방식으로 요소에 접근하거나 슬라이싱 가능합니다.
+   <div class="highlight"><pre><span></span><code><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># 첫 번째 요소: 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># 슬라이싱: [2, 3, 4]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>배열 형태 변경</strong></p>
+</li>
+<li>
+<p>배열의 크기(shape)를 조정하거나 전치(transpose) 가능합니다.
+   <div class="highlight"><pre><span></span><code><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># (3, 2)</span>
+
+<span class="n">reshaped</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># (2, 3) 배열로 변환</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reshaped</span><span class="p">)</span>
+
+<span class="n">transposed</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># 배열 전치</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">transposed</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>유용한 함수</strong>
+   <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 합계: 15</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 평균: 3.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 최댓값: 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 최솟값: 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>  <span class="c1"># 요소별 제곱근: [1., 1.41, 1.73, 2., 2.24]</span>
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="numpy_2"><strong>NumPy의 장점</strong></h3>
+<ol>
+<li><strong>빠른 연산 속도</strong>:</li>
+<li>
+<p>NumPy는 내부적으로 C로 구현되어, 일반 Python 코드보다 훨씬 빠르게 수치 연산을 수행.</p>
+</li>
+<li>
+<p><strong>메모리 효율성</strong>:</p>
+</li>
+<li>
+<p>Python 리스트에 비해 메모리 사용량이 적음.</p>
+</li>
+<li>
+<p><strong>다양한 데이터 처리 기능</strong>:</p>
+</li>
+<li>
+<p>이미지, 오디오, 비디오 데이터를 포함한 다양한 데이터 포맷 처리 가능.</p>
+</li>
+<li>
+<p><strong>광범위한 응용 분야</strong>:</p>
+</li>
+<li>데이터 과학, 인공지능, 기계 학습, 물리학 시뮬레이션 등에서 사용.</li>
+</ol>
+<hr />
+<h3 id="numpy_3"><strong>NumPy와 다른 도구와의 연계</strong></h3>
+<ul>
+<li><strong>Pandas</strong>:</li>
+<li>Pandas는 NumPy 기반으로 구축되었으며, 데이터 분석 및 처리에 특화.</li>
+<li><strong>OpenCV</strong>:</li>
+<li>OpenCV 이미지는 NumPy 배열로 표현되어 이미지 처리에 활용.</li>
+<li><strong>TensorFlow/PyTorch</strong>:</li>
+<li>딥러닝 프레임워크에서도 NumPy 배열을 데이터 전처리에 사용.</li>
+</ul>
+<hr />
+<h3 id="_1"><strong>실용 예제</strong></h3>
+<h4 id="1">1. <strong>이미지 데이터 처리</strong></h4>
+<p>OpenCV로 이미지를 로드하고 NumPy로 처리:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 이미지 로드</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;example.jpg&#39;</span><span class="p">)</span>
+
+<span class="c1"># 이미지의 일부를 슬라이싱</span>
+<span class="n">cropped</span> <span class="o">=</span> <span class="n">img</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">:</span><span class="mi">300</span><span class="p">]</span>
+
+<span class="c1"># 밝기 조정 (모든 픽셀 값에 50 추가)</span>
+<span class="n">brightened</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">img</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;Cropped&#39;</span><span class="p">,</span> <span class="n">cropped</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;Brightened&#39;</span><span class="p">,</span> <span class="n">brightened</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div></p>
+<h4 id="2">2. <strong>데이터 분석</strong></h4>
+<p>NumPy를 이용한 통계 분석:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c1"># 1000개의 난수 생성</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;평균: </span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s2">, 표준편차: </span><span class="si">{</span><span class="n">std_dev</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<p>NumPy는 간단한 수학 계산부터 복잡한 데이터 분석까지 다양한 작업을 지원하며, 데이터 과학과 머신러닝의 필수 도구로 널리 사용됩니다.</p>
+<p><br></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../opencv_install/" class="btn btn-neutral float-left" title="설치"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../opencv_color/" class="btn btn-neutral float-right" title="색상처리예제">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../opencv_install/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../opencv_color/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

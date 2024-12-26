@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>5.3 CNN - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "5.3 CNN";
+        var mkdocs_page_input_path = "\ud30c\uc774\ud1a0\uce58\\cnn.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">5.3 CNN</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#cnn_1">CNN 기본 개념</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_1">입력 채널</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-in_channels">1. in_channels와 입력 데이터의 형식</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-conv2d">2. Conv2d의 입력 구조</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-2">3. 입력 데이터가 2차원인 경우</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4">4. 컬러 이미지의 경우</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5">5. 요약</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pytorch-cnn">PyTorch에서 CNN 구현</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1">1. 라이브러리 임포트</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2">2. 데이터 준비</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-cnn">3. CNN 모델 정의</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4_1">4. 손실 함수 및 최적화 기법</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5_1">5. 학습 루프</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6">6. 모델 평가</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7">7. 모델의 주요 하이퍼파라미터</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#8-cnn">8. 확장: 더 복잡한 CNN</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#9">9. 결과</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">5. 파이토치</li>
+      <li class="breadcrumb-item active">5.3 CNN</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="cnn">CNN</h1>
+<p>PyTorch에서 Convolutional Neural Network (CNN)을 사용하는 방법은 딥러닝에서 이미지 처리 문제를 해결하기 위한 핵심 기술입니다. CNN은 컨볼루션 레이어와 풀링 레이어를 조합하여 이미지의 공간적 특징을 학습합니다. 아래에 PyTorch에서 CNN을 사용한 기본적인 설명과 예제를 제공합니다.</p>
+<hr />
+<h2 id="cnn_1"><strong>CNN 기본 개념</strong></h2>
+<ol>
+<li><strong>Convolution Layer</strong>:</li>
+<li>입력 이미지에 필터(커널)를 적용하여 특징 맵을 생성.</li>
+<li>
+<p>이미지의 국소적 특징(모서리, 윤곽 등)을 학습.</p>
+</li>
+<li>
+<p><strong>Activation Function</strong>:</p>
+</li>
+<li>
+<p>활성화 함수(ReLU 등)를 사용하여 비선형성을 도입.</p>
+</li>
+<li>
+<p><strong>Pooling Layer</strong>:</p>
+</li>
+<li>특징 맵의 크기를 줄이고 계산 비용을 감소.</li>
+<li>
+<p>MaxPooling, AveragePooling 등이 일반적.</p>
+</li>
+<li>
+<p><strong>Fully Connected Layer</strong>:</p>
+</li>
+<li>컨볼루션과 풀링 과정을 통해 추출된 특징을 기반으로 최종 분류 수행.</li>
+</ol>
+<hr />
+<h2 id="_1">입력 채널</h2>
+<p>PyTorch의 <code>nn.Conv2d</code> 레이어에서 <code>in_channels</code> 매개변수는 입력 데이터의 채널 수를 나타냅니다. 이 값은 입력 데이터의 형식(예: 흑백 또는 컬러 이미지)에 따라 설정됩니다. </p>
+<hr />
+<h3 id="1-in_channels"><strong>1. <code>in_channels</code>와 입력 데이터의 형식</strong></h3>
+<p><code>in_channels</code>는 입력 데이터의 **채널 수**를 지정합니다.</p>
+<ul>
+<li><strong>흑백 이미지</strong>:</li>
+<li>흑백 이미지는 픽셀당 하나의 값(명도)을 가지므로 **1채널**로 간주됩니다.</li>
+<li>따라서 <code>in_channels=1</code>로 설정합니다.</li>
+<li>
+<p>흑백 이미지의 형태: <code>(batch_size, 1, height, width)</code><br />
+    예: <code>(64, 1, 28, 28)</code> (MNIST 데이터셋)</p>
+</li>
+<li>
+<p><strong>컬러 이미지</strong>:</p>
+</li>
+<li>컬러 이미지는 RGB(빨강, 초록, 파랑) 값으로 구성되므로 **3채널**로 간주됩니다.</li>
+<li>따라서 <code>in_channels=3</code>으로 설정합니다.</li>
+<li>컬러 이미지의 형태: <code>(batch_size, 3, height, width)</code><br />
+    예: <code>(64, 3, 32, 32)</code> (CIFAR-10 데이터셋)</li>
+</ul>
+<hr />
+<h3 id="2-conv2d"><strong>2. <code>Conv2d</code>의 입력 구조</strong></h3>
+<p><code>nn.Conv2d</code>의 입력은 4차원 텐서여야 하며, 다음과 같은 구조를 가집니다:
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">in_channels</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+</code></pre></div></p>
+<ul>
+<li><strong><code>batch_size</code></strong>: 한 번에 처리할 데이터의 개수.</li>
+<li><strong><code>in_channels</code></strong>: 입력 데이터의 채널 수.</li>
+<li><strong><code>height, width</code></strong>: 입력 데이터의 세로 및 가로 크기.</li>
+</ul>
+<hr />
+<h3 id="3-2"><strong>3. 입력 데이터가 2차원인 경우</strong></h3>
+<p>만약 입력 데이터가 **2차원 이미지(흑백)**라면, 채널 정보가 누락된 형태일 수 있습니다. 이를 처리하려면 채널 차원을 추가해야 합니다.</p>
+<p>예를 들어:
+<div class="highlight"><pre><span></span><code><span class="c1"># 입력 데이터 형태: (batch_size, height, width)</span>
+<span class="n">input_2d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>  <span class="c1"># 64개의 흑백 이미지</span>
+
+<span class="c1"># 채널 차원을 추가하여 Conv2d에 맞게 변환: (batch_size, in_channels, height, width)</span>
+<span class="n">input_2d</span> <span class="o">=</span> <span class="n">input_2d</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (64, 1, 28, 28)</span>
+</code></pre></div></p>
+<hr />
+<h3 id="4"><strong>4. 컬러 이미지의 경우</strong></h3>
+<p>컬러 이미지는 채널 정보가 이미 포함되어 있으므로 <code>in_channels=3</code>으로 설정합니다.</p>
+<p>예를 들어, CIFAR-10 데이터셋:
+<div class="highlight"><pre><span></span><code><span class="c1"># CIFAR-10 이미지는 3채널 RGB</span>
+<span class="n">input_rgb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>  <span class="c1"># 64개의 컬러 이미지</span>
+
+<span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">out_channels</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">conv</span><span class="p">(</span><span class="n">input_rgb</span><span class="p">)</span>  <span class="c1"># 출력: (64, 32, 32, 32)</span>
+</code></pre></div></p>
+<hr />
+<h3 id="5"><strong>5. 요약</strong></h3>
+<ul>
+<li><strong>흑백 이미지</strong>: <code>in_channels=1</code> (데이터 형태: <code>(batch_size, 1, height, width)</code>)</li>
+<li><strong>컬러 이미지</strong>: <code>in_channels=3</code> (데이터 형태: <code>(batch_size, 3, height, width)</code>)</li>
+</ul>
+<p>만약 데이터의 차원이 맞지 않는다면 <code>unsqueeze</code>나 데이터 전처리 과정을 통해 채널 차원을 추가하거나 조정해야 합니다.</p>
+<h2 id="pytorch-cnn"><strong>PyTorch에서 CNN 구현</strong></h2>
+<p>아래는 PyTorch를 사용하여 CNN을 설계하고 MNIST 데이터셋에 적용하는 예제입니다.</p>
+<h3 id="1"><strong>1. 라이브러리 임포트</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">from</span> <span class="nn">torchvision</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">transforms</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
+</code></pre></div>
+<h3 id="2"><strong>2. 데이터 준비</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 데이터 변환: Tensor 변환 및 정규화</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="n">transforms</span><span class="o">.</span><span class="n">Compose</span><span class="p">([</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">ToTensor</span><span class="p">(),</span>
+    <span class="n">transforms</span><span class="o">.</span><span class="n">Normalize</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,),</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,))</span>
+<span class="p">])</span>
+
+<span class="c1"># 데이터셋 로드</span>
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">MNIST</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="s1">&#39;./data&#39;</span><span class="p">,</span> <span class="n">train</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 데이터 로더 생성</span>
+<span class="n">train_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_loader</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">test_dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="3-cnn"><strong>3. CNN 모델 정의</strong></h3>
+<p>CNN 모델은 <code>nn.Module</code>을 상속받아 정의하며, 여러 계층을 조합하여 설계합니다.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">CNNModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CNNModel</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Convolutional layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv_layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>  <span class="c1"># 1채널 입력 -&gt; 32채널 출력</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>  <span class="c1"># 활성화 함수</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>  <span class="c1"># 크기 감소 (28x28 -&gt; 14x14)</span>
+
+            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>  <span class="c1"># 32채널 입력 -&gt; 64채널 출력</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">MaxPool2d</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># 크기 감소 (14x14 -&gt; 7x7)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Fully connected layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc_layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>  <span class="c1"># 64x7x7 -&gt; 3136</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">64</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">*</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>  <span class="c1"># Fully connected layer</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># 출력 10 (클래스 개수)</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv_layers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Convolutional layers 통과</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc_layers</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Fully connected layers 통과</span>
+        <span class="k">return</span> <span class="n">x</span>
+
+<span class="c1"># 모델 초기화</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CNNModel</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="4_1"><strong>4. 손실 함수 및 최적화 기법</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 손실 함수: CrossEntropyLoss</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
+
+<span class="c1"># 옵티마이저: Adam</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="5_1"><strong>5. 학습 루프</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="n">epochs</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>  <span class="c1"># 학습 모드</span>
+    <span class="n">running_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">train_loader</span><span class="p">:</span>
+        <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Forward pass</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+        <span class="c1"># Backward pass and optimization</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="n">running_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Epoch [</span><span class="si">{</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">epochs</span><span class="si">}</span><span class="s2">], Loss: </span><span class="si">{</span><span class="n">running_loss</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">train_loader</span><span class="p">)</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="6"><strong>6. 모델 평가</strong></h3>
+<p>테스트 데이터셋에서 모델의 성능을 평가합니다.</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  <span class="c1"># 평가 모드</span>
+<span class="n">correct</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">test_loader</span><span class="p">:</span>
+        <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">images</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">labels</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">predicted</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">outputs</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">labels</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">correct</span> <span class="o">+=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">==</span> <span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test Accuracy: </span><span class="si">{</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">total</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h3 id="7"><strong>7. 모델의 주요 하이퍼파라미터</strong></h3>
+<ol>
+<li><strong>Conv2d Parameters</strong>:</li>
+<li><code>in_channels</code>: 입력 채널 수 (흑백 이미지=1, 컬러 이미지=3).</li>
+<li><code>out_channels</code>: 출력 채널 수 (필터 수).</li>
+<li><code>kernel_size</code>: 필터 크기 (보통 3x3 또는 5x5 사용).</li>
+<li><code>stride</code>: 필터 이동 간격 (기본값=1).</li>
+<li>
+<p><code>padding</code>: 입력에 추가되는 픽셀 (엣지 보존용).</p>
+</li>
+<li>
+<p><strong>MaxPool2d Parameters</strong>:</p>
+</li>
+<li><code>kernel_size</code>: 풀링 영역 크기.</li>
+<li>
+<p><code>stride</code>: 풀링 이동 간격 (기본값=kernel_size).</p>
+</li>
+<li>
+<p><strong>Linear Parameters</strong>:</p>
+</li>
+<li>입력 및 출력 노드의 개수.</li>
+</ol>
+<hr />
+<h3 id="8-cnn"><strong>8. 확장: 더 복잡한 CNN</strong></h3>
+<p>복잡한 데이터셋(CIFAR-10, ImageNet 등)을 처리하려면 더 많은 컨볼루션 레이어와 드롭아웃(dropout)을 추가하거나, ResNet, VGG와 같은 사전 학습된 모델을 사용할 수 있습니다.</p>
+<hr />
+<h3 id="9"><strong>9. 결과</strong></h3>
+<p>위 코드로 MNIST 데이터셋을 학습하면 약 **98% 이상의 테스트 정확도**를 얻을 수 있습니다. CNN은 이미지 처리에서 뛰어난 성능을 발휘하며, PyTorch를 사용하면 간단히 구현할 수 있습니다. Jetson Orin Nano와 같은 디바이스에서 CNN을 효율적으로 실행하면 엣지 컴퓨팅 환경에서도 강력한 AI 모델을 활용할 수 있습니다.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../mnist/" class="btn btn-neutral float-left" title="5.2 MNIST"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../cnn_a/" class="btn btn-neutral float-right" title="5.3 CNN+">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../mnist/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../cnn_a/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

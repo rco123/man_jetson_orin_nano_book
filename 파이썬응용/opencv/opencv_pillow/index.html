@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://rco123.github.io/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_pillow/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>opencv 이미지 데이터 변환 - Jetson Nano Board</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../../extra_css/style.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "opencv \uc774\ubbf8\uc9c0 \ub370\uc774\ud130 \ubcc0\ud658";
+        var mkdocs_page_input_path = "\ud30c\uc774\uc36c\uc751\uc6a9\\opencv\\opencv_pillow.md";
+        var mkdocs_page_url = "/man_jetson_nano_book/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%9D%91%EC%9A%A9/opencv/opencv_pillow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Jetson Nano Board
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 네트워크설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/ip_usb/">1.1 USB 연결</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/nmcli/">1.2 nmcli</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 파일공유 설정</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%BC%EA%B3%B5%EC%9C%A0/samba_setting/">1.1 삼바설정</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">1. 프로그램실행</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/linux_cmd/">1.1 셀명령</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/jetson/">1.2 젯슨툴</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/pyenv/">1.3 가상환경실행</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%EC%8B%A4%ED%96%89/run_env/">1.4 환경변수적용</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">2. 파이썬 기초</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%8C%8C%EC%9D%B4%EC%8D%AC%EC%86%8C%EA%B0%9C/">2.1 파이썬소개</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98/">2.2 변수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EB%B3%80%EC%88%98%ED%83%80%EC%9E%85/">2.3 변수타입</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%EC%A0%9C%EC%96%B4%EB%AC%B8/">2.4 제어문</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%95%A8%EC%88%98/">2.5 함수</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%EC%8D%AC/%ED%81%B4%EB%9E%98%EC%8A%A4/">2.6 클래스</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">3. 파이썬 응용</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >3.1 opencv</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv/">개요</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_install/">설치</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_numpy/">넘파이</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_color/">색상처리예제</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../opencv_jetson/">젯슨보드예제</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">4. HW 제어</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/setting/">4.1 핀설정</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/hw/">4.2 기초제어</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4/ps4/">4.3 PS4컨터롤러</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">5. 파이토치</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%84%A4%EC%B9%98/">5.1 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/mnist/">5.2 MNIST</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn/">5.3 CNN</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/cnn_a/">5.3 CNN+</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/tran/">5.4 전이학습</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../%ED%8C%8C%EC%9D%B4%ED%86%A0%EC%B9%98/%EC%A0%95%EA%B7%9C%ED%99%94/">5.5 정규화</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">6. YOLO</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/yolo5%EC%84%A4%EC%B9%98/">6.1 YOLO5 설치</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../YOLO/%EC%82%AC%EC%9A%A9%EC%9E%90%ED%95%99%EC%8A%B5/">6.2 YOLO5 사용자학습</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Jetson Nano Board</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">opencv 이미지 데이터 변환</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="opencv">opencv 이미지 데이터 변환</h1>
+<p>Python의 <strong>Pillow</strong> 라이브러리(기본 <code>Image</code> 모듈)를 사용하여 OpenCV, Matplotlib, Pillow 간의 이미지 데이터를 상호 변환하고 출력하는 방법을 추가로 설명하겠습니다.</p>
+<hr />
+<h2 id="1-pillow">1. <strong>Pillow 라이브러리 기본 소개</strong></h2>
+<p>Pillow는 이미지 처리와 조작을 위한 Python 라이브러리입니다. Pillow는 다양한 이미지 형식(BMP, PNG, JPEG 등)을 지원하며, OpenCV 및 Matplotlib과도 데이터를 상호 변환할 수 있습니다.</p>
+<h3 id="pillow">Pillow 설치</h3>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pillow
+</code></pre></div>
+<hr />
+<h2 id="2-opencv-pillow">2. <strong>OpenCV ↔ Pillow 데이터 변환</strong></h2>
+<h3 id="opencv-pillow">OpenCV 이미지 → Pillow 이미지 변환</h3>
+<p>OpenCV는 NumPy 배열 형식의 이미지를 사용합니다. 이를 Pillow로 변환하려면 <code>Image.fromarray</code>를 사용합니다.</p>
+<h4 id="_1">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># OpenCV로 이미지 읽기 (BGR)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># OpenCV (BGR) → Pillow (RGB)</span>
+<span class="n">image_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>  <span class="c1"># BGR → RGB 변환</span>
+<span class="n">image_pillow</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">)</span>  <span class="c1"># NumPy 배열 → Pillow 이미지</span>
+<span class="n">image_pillow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Pillow로 이미지 출력</span>
+</code></pre></div>
+<hr />
+<h3 id="pillow-opencv">Pillow 이미지 → OpenCV 이미지 변환</h3>
+<p>Pillow 이미지를 OpenCV 형식으로 변환하려면 <code>np.array</code>를 사용합니다.</p>
+<h4 id="_2">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Pillow로 이미지 열기</span>
+<span class="n">image_pillow</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pillow → OpenCV</span>
+<span class="n">image_rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_pillow</span><span class="p">)</span>  <span class="c1"># Pillow → NumPy 배열</span>
+<span class="n">image_bgr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_RGB2BGR</span><span class="p">)</span>  <span class="c1"># RGB → BGR 변환</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;OpenCV Image&quot;</span><span class="p">,</span> <span class="n">image_bgr</span><span class="p">)</span>  <span class="c1"># OpenCV로 출력</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h2 id="3-matplotlib-pillow">3. <strong>Matplotlib ↔ Pillow 데이터 변환</strong></h2>
+<p>Matplotlib는 Pillow와 동일하게 RGB 형식을 사용하므로 변환이 간단합니다.</p>
+<h3 id="pillow-matplotlib">Pillow 이미지 → Matplotlib</h3>
+<p>Pillow 이미지를 Matplotlib로 변환하여 출력하려면 <code>np.array</code>를 사용합니다.</p>
+<h4 id="_3">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Pillow로 이미지 열기</span>
+<span class="n">image_pillow</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pillow → Matplotlib (NumPy 배열로 변환)</span>
+<span class="n">image_rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_pillow</span><span class="p">)</span>
+
+<span class="c1"># Matplotlib로 출력</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Image with Matplotlib&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="matplotlib-pillow">Matplotlib 이미지 → Pillow</h3>
+<p>Matplotlib는 NumPy 배열 형식을 사용합니다. 이를 Pillow 형식으로 변환하려면 <code>Image.fromarray</code>를 사용합니다.</p>
+<h4 id="_4">코드:</h4>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># 가상 NumPy 배열 생성 (Matplotlib에서 처리된 데이터라고 가정)</span>
+<span class="n">image_rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">image_rgb</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">150</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># 왼쪽은 빨간색</span>
+<span class="n">image_rgb</span><span class="p">[:,</span> <span class="mi">150</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># 오른쪽은 초록색</span>
+
+<span class="c1"># Matplotlib (NumPy 배열) → Pillow</span>
+<span class="n">image_pillow</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">)</span>
+<span class="n">image_pillow</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Pillow로 출력</span>
+</code></pre></div>
+<hr />
+<h2 id="4-opencv-matplotlib-pillow">4. <strong>OpenCV ↔ Matplotlib ↔ Pillow 간 데이터 흐름</strong></h2>
+<h3 id="opencv-pillow-matplotlib">OpenCV → Pillow → Matplotlib</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># OpenCV로 이미지 읽기 (BGR)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;sample.jpg&quot;</span><span class="p">)</span>
+
+<span class="c1"># OpenCV (BGR) → Pillow (RGB)</span>
+<span class="n">image_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+<span class="n">image_pillow</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">)</span>
+
+<span class="c1"># Pillow → Matplotlib</span>
+<span class="n">image_rgb_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image_pillow</span><span class="p">)</span>
+
+<span class="c1"># Matplotlib로 출력</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rgb_array</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Image with Matplotlib&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<hr />
+<h3 id="_5">데이터 흐름 요약</h3>
+<table>
+<thead>
+<tr>
+<th>라이브러리</th>
+<th>입력 형식</th>
+<th>출력 형식</th>
+<th>변환 메서드</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenCV → Pillow</strong></td>
+<td>NumPy 배열 (BGR)</td>
+<td>Pillow 이미지 (RGB)</td>
+<td><code>cv2.cvtColor</code> + <code>Image.fromarray</code></td>
+</tr>
+<tr>
+<td><strong>Pillow → OpenCV</strong></td>
+<td>Pillow 이미지 (RGB)</td>
+<td>NumPy 배열 (BGR)</td>
+<td><code>np.array</code> + <code>cv2.cvtColor</code></td>
+</tr>
+<tr>
+<td><strong>Matplotlib → Pillow</strong></td>
+<td>NumPy 배열 (RGB)</td>
+<td>Pillow 이미지 (RGB)</td>
+<td><code>Image.fromarray</code></td>
+</tr>
+<tr>
+<td><strong>Pillow → Matplotlib</strong></td>
+<td>Pillow 이미지 (RGB)</td>
+<td>NumPy 배열 (RGB)</td>
+<td><code>np.array</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5">5. <strong>각 라이브러리의 이미지 출력 차이</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>라이브러리</strong></th>
+<th><strong>출력 방식</strong></th>
+<th><strong>장점</strong></th>
+<th><strong>제한사항</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenCV</strong></td>
+<td>독립 GUI 창에서 출력</td>
+<td>실시간 처리, 이벤트 기반 처리 가능</td>
+<td>BGR 형식 사용, Jupyter에 부적합</td>
+</tr>
+<tr>
+<td><strong>Matplotlib</strong></td>
+<td>그래프 내에서 시각화 출력</td>
+<td>데이터 분석 및 시각화에 유리</td>
+<td>실시간 처리에 부적합</td>
+</tr>
+<tr>
+<td><strong>Pillow</strong></td>
+<td>OS 기본 이미지 뷰어에서 출력</td>
+<td>이미지 변환 및 파일 작업에 유리</td>
+<td>복잡한 시각화는 제한적</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="_6">요약</h3>
+<ul>
+<li>OpenCV, Matplotlib, Pillow는 각기 다른 강점을 가진 이미지 처리 라이브러리입니다.</li>
+<li>데이터를 상호 변환하면 각 라이브러리의 장점을 조합하여 활용할 수 있습니다.</li>
+<li>Pillow는 OpenCV와 Matplotlib 간의 데이터 변환에 중요한 역할을 합니다.</li>
+</ul>
+<p>추가적으로 궁금한 점이나 확장 요청이 있다면 말씀해주세요! 😊</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
