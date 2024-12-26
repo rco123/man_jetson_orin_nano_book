@@ -167,7 +167,16 @@
 <p>Jetson Nano는 GPU 가속이 가능한지 확인하는 것이 중요합니다.</p>
 <p>CUDA 버전 확인:
 <div class="highlight"><pre><span></span><code>nvcc<span class="w"> </span>--version
-</code></pre></div></p>
+</code></pre></div>
+출력:</p>
+<div class="highlight"><pre><span></span><code>jetson@ubuntu:~$<span class="w"> </span>nvcc<span class="w"> </span>--version
+nvcc:<span class="w"> </span>NVIDIA<span class="w"> </span><span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Cuda<span class="w"> </span>compiler<span class="w"> </span>driver
+Copyright<span class="w"> </span><span class="o">(</span>c<span class="o">)</span><span class="w"> </span><span class="m">2005</span>-2022<span class="w"> </span>NVIDIA<span class="w"> </span>Corporation
+Built<span class="w"> </span>on<span class="w"> </span>Sun_Oct_23_22:16:07_PDT_2022
+Cuda<span class="w"> </span>compilation<span class="w"> </span>tools,<span class="w"> </span>release<span class="w"> </span><span class="m">11</span>.4,<span class="w"> </span>V11.4.315
+Build<span class="w"> </span>cuda_11.4.r11.4/compiler.31964100_0
+jetson@ubuntu:~$
+</code></pre></div>
 <p>TensorFlow에서 GPU 확인:
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Num GPUs Available: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)))</span>
@@ -185,6 +194,12 @@
 <p>사용:
 <div class="highlight"><pre><span></span><code>jtop
 </code></pre></div></p>
+<p><center>
+<img  src="../../프로그램실행/imgs/jtop01.png"  width="600"  height="400" /> </p>
+<p>[그림.1] jtop 실행</p>
+<p></center></p>
+<div style="height:20px"></div>
+
 <p>표시정보:</p>
 <ul>
 <li>CPU 사용률: 각 코어별 점유율</li>
